@@ -253,6 +253,51 @@ html, body {
     padding-top: 1.5rem;
 }
 
+/* Brand Name Label — "NEW FANCY JEWELLERS" */
+.brand-name-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.1rem;
+    opacity: 0;
+    animation: fadeSlideDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.brand-label-line {
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.8));
+    display: inline-block;
+    animation: lineExpand 1s ease 0.4s both;
+}
+
+.brand-label-line:last-child {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.8), transparent);
+}
+
+.brand-label-text {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    background: linear-gradient(
+        90deg,
+        #f7e7b4 0%,
+        #D4AF37 40%,
+        #fff8dc 60%,
+        #D4AF37 80%,
+        #f7e7b4 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerGold 3.5s linear 1.2s infinite;
+    white-space: nowrap;
+}
+
 .hero-subtitle {
     display: block;
     font-size: 0.82rem;
