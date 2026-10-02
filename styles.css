@@ -1,0 +1,478 @@
+/* -------------------------------------------------------------
+   NEW FANCY JEWELS - CLEAN FULLPAGE HERO CAMPAIGN BACKGROUND
+   + PREMIUM TEXT ANIMATIONS
+------------------------------------------------------------- */
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+============================================================ */
+
+@keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideLeft {
+    from { opacity: 0; transform: translateX(30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes lineExpand {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+
+@keyframes shimmerGold {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes trustPop {
+    from { opacity: 0; transform: translateY(14px) scale(0.94); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ============================================================
+   ANIMATION UTILITY CLASSES
+============================================================ */
+.anim-hidden {
+    opacity: 0;
+}
+
+:root {
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --text-white: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.78);
+    --gold-accent: #D4AF37;
+    --border-light: rgba(255, 255, 255, 0.4);
+    --border-subtle: rgba(255, 255, 255, 0.15);
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #0a0a0c;
+    color: var(--text-white);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* -------------------------------------------------------------
+   HERO SECTION CONTAINER
+------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-height: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.8rem 4rem 3rem 4rem;
+    overflow: hidden;
+}
+
+/* 16:9 Clean Background Image Layer */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    transform: scale(1.01);
+    transition: transform 10s ease;
+}
+
+.hero-section:hover .hero-bg {
+    transform: scale(1.03);
+}
+
+/* Subtle Vignette & Gradient Overlay */
+.hero-subtle-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        rgba(10, 10, 12, 0.82) 0%, 
+        rgba(10, 10, 12, 0.55) 38%, 
+        rgba(10, 10, 12, 0.10) 65%,
+        rgba(10, 10, 12, 0.0) 80%
+    );
+    z-index: 2;
+}
+
+/* -------------------------------------------------------------
+   NAVBAR HEADER
+------------------------------------------------------------- */
+.navbar {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Official Logo Link & Image */
+.brand-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.official-logo-img {
+    height: 68px;
+    width: auto;
+    max-width: 240px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.7));
+    transition: var(--transition);
+}
+
+.brand-logo-link:hover .official-logo-img {
+    transform: scale(1.04);
+    filter: drop-shadow(0 6px 18px rgba(212, 175, 55, 0.35));
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.8rem;
+}
+
+.nav-links a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    position: relative;
+    padding-bottom: 4px;
+    transition: var(--transition);
+    opacity: 0.88;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    opacity: 1;
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--text-white);
+    border-radius: 2px;
+}
+
+/* Right Action Icons */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-white);
+    font-size: 1.15rem;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.9;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    color: var(--gold-accent);
+}
+
+.badge-dot {
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    width: 6px;
+    height: 6px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+}
+
+/* -------------------------------------------------------------
+   HERO CONTENT OVERLAY (LEFT 40-45%)
+------------------------------------------------------------- */
+.hero-content-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    max-width: 580px;
+    padding-top: 1.5rem;
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.4rem;
+    /* Animation */
+    opacity: 0;
+    animation: fadeSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.8rem;
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.5px;
+    color: var(--text-white);
+    margin-bottom: 1.6rem;
+    /* Animation */
+    opacity: 0;
+    animation: fadeSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+.italic-title {
+    font-style: italic;
+    font-weight: 400;
+    /* Gold shimmer effect on italic title */
+    background: linear-gradient(
+        90deg,
+        #fff 0%,
+        #f7e7b4 30%,
+        #D4AF37 50%,
+        #f7e7b4 70%,
+        #fff 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation:
+        fadeSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards,
+        shimmerGold 4s linear 1.6s infinite;
+    opacity: 0;
+}
+
+.hero-description {
+    font-size: 1.02rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 2.6rem;
+    max-width: 480px;
+    /* Animation */
+    opacity: 0;
+    animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
+}
+
+/* Explore Button */
+.btn-outline-explore {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: transparent;
+    border: 1px solid var(--border-light);
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 0.95rem 2.2rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    border-radius: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button inner shine sweep on hover */
+.btn-outline-explore::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-outline-explore:hover::before {
+    left: 160%;
+}
+
+.btn-outline-explore:hover {
+    background: var(--text-white);
+    color: #0a0a0c;
+    border-color: var(--text-white);
+    transform: translateX(4px);
+}
+
+.btn-outline-explore i {
+    font-size: 0.95rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-outline-explore:hover i {
+    transform: translateX(6px);
+}
+
+/* -------------------------------------------------------------
+   TRUST BADGES BAR (BOTTOM LEFT)
+------------------------------------------------------------- */
+.hero-trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    margin-top: auto;
+    padding-top: 3.2rem;
+}
+
+/* Staggered trust badge animations */
+.trust-box:nth-child(1) {
+    opacity: 0;
+    animation: trustPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.7s forwards;
+}
+.trust-box:nth-child(3) {
+    opacity: 0;
+    animation: trustPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.95s forwards;
+}
+.trust-box:nth-child(5) {
+    opacity: 0;
+    animation: trustPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
+}
+.trust-divider {
+    opacity: 0;
+    animation: fadeIn 0.5s ease 2.1s forwards;
+}
+
+.trust-box {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.trust-icon {
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.95;
+}
+
+.trust-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.78rem;
+    line-height: 1.2;
+}
+
+.trust-text strong {
+    font-weight: 600;
+    color: var(--text-white);
+    letter-spacing: 0.3px;
+}
+
+.trust-text span {
+    font-weight: 300;
+    color: var(--text-muted);
+}
+
+.trust-divider {
+    width: 1px;
+    height: 28px;
+    background-color: var(--border-subtle);
+}
+
+/* -------------------------------------------------------------
+   RESPONSIVE DESIGN
+------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .hero-section {
+        padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+    }
+
+    .official-logo-img {
+        height: 54px;
+    }
+
+    .hero-title {
+        font-size: 3.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 1.2rem 1.2rem 2rem 1.2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .official-logo-img {
+        height: 48px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-trust-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .trust-divider {
+        display: none;
+    }
+}
